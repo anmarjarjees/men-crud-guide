@@ -1,0 +1,6 @@
+Dear Students,
+
+This folder "img-repo" is just for containing the image files for the README.md file content.
+
+Thanks,
+Anmar Jarjees
