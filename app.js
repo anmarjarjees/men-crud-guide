@@ -12,7 +12,8 @@ import express from 'express';
 // Using Mongoose to interact with MongoDB.
 import mongoose from 'mongoose';
 
-// Using dotenv to access MongoDB connection URI loaded from .env 
+// Using "dotenv" package for loading the environment variable from the .env file
+// this variable contains the MongoDB connection URI
 import dotenv from 'dotenv';
 
 // Import the CRUD routes:
@@ -35,8 +36,12 @@ import readEmployeeRoute from './routes/readEmployee.js';
 import updateEmployeeRoute from './routes/updateEmployee.js';
 import deleteEmployeeRoute from './routes/deleteEmployee.js';
 
-// Load environment variables from the .env file
+// Loading environment variable(s) from the .env file
 dotenv.config();
+/* 
+This will include the .env file in our application process (process.env)
+So later we can access it like "process.env.VARIABLE_NAME" in your code
+*/
 
 // Initialize express app (Creating an instance of the Express app)
 const app = express();
@@ -347,8 +352,8 @@ app.listen(port, () => {
 
 // Or adding the full structure with error handling:
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
+    console.log(`Application URL: http://localhost:${port}`);
 }).on('error', (err) => {
-    console.error('Server error:', err);
-    process.exit(1); // Exit if there’s an issue starting the server
+    console.error('Server loading error:', err);
+    process.exit(1); // Exit with code "1" for errors for any issue
 });
